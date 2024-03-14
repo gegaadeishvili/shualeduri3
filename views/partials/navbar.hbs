@@ -1,0 +1,19 @@
+  <nav>
+    <div class="purple darken-4">
+      <a href="/" class="brand-logo">Expenses</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        {{#if isIndex}}
+            <li class="active"><a href="/">Expenses</a></li>
+        {{else}}
+            <li><a href="/">Expenses</a></li>
+        {{/if}}
+
+        {{#if isCreate}}
+            <li class="active"><a href="/create">Create</a></li>
+        {{else}}
+            <li><a href="/create">Create</a></li>
+        {{/if}}
+
+      </ul>
+    </div>
+  </nav>

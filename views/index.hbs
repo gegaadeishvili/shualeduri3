@@ -1,0 +1,61 @@
+<h2>Expenses page</h2>
+{{#if expenses.length}}
+        <div class="row">
+                <form class="col s11">
+                    <div class="row">
+                        <div class="input-field col s1">
+                            <span></span>
+                        </div>
+                        <div class="input-field col s1">
+                            <span></span>
+                        </div>
+                        <div class="input-field col s3">
+                            <span>Title</span>
+                        </div>
+                        <div class="input-field col s3">
+                            <span>Money Amount</span>
+                        </div>
+                        <div class="input-field col s2">
+                            <span>Category</span>
+                        </div>
+                    </div> 
+                </form>            
+            </div>
+        {{#each expenses}}
+            <div class="row">
+                <form class="col s11" action="/edit" method="POST">
+                    <div class="row">
+                        <div class="input-field col s1">
+                            <span>{{@index}}</span>
+                        </div>
+                        <div class="input-field col s1">
+                            <input  placeholder="id" type="hidden" name="id" value="{{_id}}">
+                        </div>
+                        <div class="input-field col s3">
+                            <input placeholder="title" type="text" name="title" value="{{title}}">
+                        </div>
+                        <div class="input-field col s3">
+                            <input placeholder="money_amount" type="number" name="money_amount" value="{{money_amount}}">
+                        </div>
+                        <div class="input-field col s1">
+                            <input placeholder="category" type="text" name="category" value="{{category}}">
+                        </div>
+                        <div class="input-field col s1">
+                            <button class="waves-effect waves-light btn" type="submit">Save</button>
+                        </div>
+                    </div> 
+                </form>
+                <form class="col s1" action="/delete" method="POST">
+                    <div class="row">
+                            <input  placeholder="id" type="hidden" name="id" value="{{_id}}">
+                        <div class="input-field col s1">
+                                <button class="waves-effect waves-light red btn" type="submit">Delete</button>
+                        </div>
+                    </div>   
+                </form>            
+            </div>
+        {{/each}}
+   
+{{else}}
+<p>No expenses!</p>
+{{/if}}
